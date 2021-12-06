@@ -80,7 +80,7 @@ parse_board_nums <-
   }
 
 d5_base <-  
-  readLines("Downloads/AoC_day5.txt")
+  readLines("Documents/personal_repos/advent_of_code_2021/data/day5_AoC.txt")
 
 d5 <- 
   d5_base %>%
@@ -94,8 +94,8 @@ d5 <-
 
 d5_df <- 
   matrix(d5,
-       nrow = length(d5_base),
-       byrow = T) %>% 
+         nrow = length(d5_base),
+         byrow = T) %>% 
   as.data.frame() 
 
 names(d5_df) <- 
@@ -130,20 +130,20 @@ d5_df_diagline <-
           abs(d5_df$y1 - d5_df$y2), ]
 
 for (i in 1:nrow(d5_df_diagline)) {
-    x_change <- d5_df_diagline$x1[i]:d5_df_diagline$x2[i]
-    y_change <- d5_df_diagline$y1[i]:d5_df_diagline$y2[i]
-    
-    diag <- data_frame(
-      x_change,
-      y_change
-    )
-    
-    for(row in 1:nrow(diag)){
-      base_mat_diag[as.numeric(diag[row, 2]), as.numeric(diag[row, 1])] <- 
-        base_mat_diag[as.numeric(diag[row, 2]), as.numeric(diag[row, 1])] + 1
-    }
-
+  x_change <- d5_df_diagline$x1[i]:d5_df_diagline$x2[i]
+  y_change <- d5_df_diagline$y1[i]:d5_df_diagline$y2[i]
+  
+  diag <- data_frame(
+    x_change,
+    y_change
+  )
+  
+  for(row in 1:nrow(diag)){
+    base_mat_diag[as.numeric(diag[row, 2]), as.numeric(diag[row, 1])] <- 
+      base_mat_diag[as.numeric(diag[row, 2]), as.numeric(diag[row, 1])] + 1
   }
+  
+}
 
 base_mat_diag[base_mat_diag > 1] %>% length()
 

@@ -81,7 +81,7 @@
 library(tidyverse)
 
 # d1 - check depth changes increase/decrease
-d1 <- read.csv("Desktop/d1_AoC.csv", header = F)
+d1 <- read.csv("Documents/personal_repos/advent_of_code_2021/data/d1_AoC.csv", header = F)
 names(d1) <- 'position'
 
 for(i in 1:nrow(d1)){

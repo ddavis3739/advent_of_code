@@ -79,7 +79,7 @@ parse_board_nums <-
   }
 
 d4_nums <-  
-  readLines("Downloads//day4_AoC.txt", n = 1) %>% 
+  readLines("Documents/personal_repos/advent_of_code_2021/data/day4_AoC.txt", n = 1) %>% 
   strsplit(., ",") %>% 
   unlist()
 

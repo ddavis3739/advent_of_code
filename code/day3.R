@@ -71,7 +71,7 @@ library (plyr)
 
 # d3 - convert binary commands to get power consumption 
 d3 <-  
-  read_delim("Desktop/day3_AoC.txt", 
+  read_delim("Documents/personal_repos/advent_of_code_2021/data/day3_AoC.txt", 
              delim = ",",
              col_names = F, 
              col_types = 

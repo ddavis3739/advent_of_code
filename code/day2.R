@@ -67,7 +67,7 @@ library(readr)
 
 # d2 - deteremine depth and poition based on commands
 d2 <- 
-  read.table("Desktop/day2_AoC.txt")
+  read.table("Documents/personal_repos/advent_of_code_2021/data/day2_AoC.txt")
 names(d2) <- c('command', "level")
 
 d2_summary <- 
