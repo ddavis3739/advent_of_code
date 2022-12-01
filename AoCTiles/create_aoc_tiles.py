@@ -90,7 +90,7 @@ def get_solution_paths_dict_for_years() -> dict[int, dict[int, list[str]]]:
             # solutions = [solutions[0]]
 
             # To show tiles for days that have been completed but do not have a solution:
-            # if len(solutions) == 0:
+            #if len(solutions) == 0:
             #     solutions = [Path("dummy.kt")]
 
             solutions = [solution.relative_to(AOC_DIR) for solution in solutions]
