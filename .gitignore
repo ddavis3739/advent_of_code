@@ -1,0 +1,7 @@
+*run
+session.cookie
+.apl.history
+.idea
+AoCTiles/.aoc_tiles_cache
+*.class
+META-INF
