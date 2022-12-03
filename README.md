@@ -7,10 +7,10 @@ I will default to doing the solutions in R but if I am feeling cheeky I will cha
 <h1 align="center">
   2022 - 2 ⭐
 </h1>
-<a href="None">
+<a href="2022/01/code/01.r">
   <img src="Media/2022/01.png" width="161px">
 </a>
-<a href="None">
+<a href="2022/02/code/02.r">
   <img src="Media/2022/02.png" width="161px">
 </a>
 <h1 align="center">

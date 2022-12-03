@@ -81,6 +81,8 @@ def get_solution_paths_dict_for_years() -> dict[int, dict[int, list[str]]]:
         # year_dir = year_dir / "src/main/kotlin/com/example/aoc"
         for day_dir in get_paths_matching_regex(year_dir, DAY_PATTERN):
             day = find_first_number(day_dir.name)
+            #code_dir = '/code'
+            #day_dir = Path(f"{day_dir}{code_dir}")
             solutions = sorted(find_recursive_solution_files(day_dir))
 
             # To filter by extension:
@@ -96,6 +98,10 @@ def get_solution_paths_dict_for_years() -> dict[int, dict[int, list[str]]]:
             solutions = [solution.relative_to(AOC_DIR) for solution in solutions]
 
             solution_paths_dict[year][day] = [str(s) for s in solutions]
+            #print(day_dir)
+            #print(type(day_dir))
+            #print(solutions)
+            #print(solution_paths_dict)
     return solution_paths_dict
 
 
@@ -161,7 +167,11 @@ def get_paths_matching_regex(path: Path, pattern: str):
 
 def find_recursive_solution_files(directory: Path) -> list[Path]:
     solution_paths = []
-    for path in directory.rglob('*'):
+    #print(directory.glob('*/*'))
+    for path in directory.glob('*/*'):
+        #print(path)
+        #print(path.suffix)
+        #print(path.suffix in extension_to_color)
         if path.is_file() and path.suffix in extension_to_color:
             solution_paths.append(path)
     return solution_paths
@@ -198,7 +208,7 @@ def request_leaderboard(year: int) -> dict[int, DayScores]:
             return leaderboard
     with open(SESSION_COOKIE_PATH) as cookie_file:
         session_cookie = cookie_file.read().strip()
-        data = requests.get(PERSONAL_LEADERBOARD_URL.format(year=year), cookies={"session": session_cookie}).text
+        data = requests.get(PERSONAL_LEADERBOARD_URL.format(year=year), headers={"User-Agent": "https://github.com/LiquidFun/adventofcode by Brutenis Gliwa"}, cookies={"session": session_cookie}).text
         leaderboard_path.parent.mkdir(exist_ok=True, parents=True)
         with open(leaderboard_path, "w") as file:
             file.write(data)
@@ -391,3 +401,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
