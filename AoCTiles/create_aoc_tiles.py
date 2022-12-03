@@ -22,6 +22,7 @@ from collections import namedtuple
 from functools import cache
 from pathlib import Path
 import re
+import os
 
 import requests
 from PIL import Image, ImageColor
@@ -124,6 +125,12 @@ AOC_TILES_SCRIPT_DIR = Path(__file__).absolute().parent
 # Cache path is a subfolder of the AOC folder, it includes the personal leaderboards for each year
 CACHE_DIR = AOC_TILES_SCRIPT_DIR / ".aoc_tiles_cache"
 
+# delete previous cached dir
+#for path in CACHE_DIR.glob('*'):
+#    print(path)
+#    if os.path.isfile(path):
+#        os.remove(path)
+
 # Overrides day 24 part 2 and day 25 both parts to be unsolved
 DEBUG = False
 
@@ -173,6 +180,7 @@ def find_recursive_solution_files(directory: Path) -> list[Path]:
         #print(path.suffix)
         #print(path.suffix in extension_to_color)
         if path.is_file() and path.suffix in extension_to_color:
+            #print(path)
             solution_paths.append(path)
     return solution_paths
 
@@ -369,6 +377,7 @@ def fill_empty_days_in_dict(day_to_solutions: dict[int, list[str]], max_day) -> 
 
 def handle_year(year: int, day_to_solutions: dict[int, list[str]]):
     leaderboard = request_leaderboard(year)
+    print(leaderboard)
     if DEBUG:
         leaderboard[25] = None
         leaderboard[24] = DayScores("22:22:22", "12313", "0")
@@ -380,6 +389,8 @@ def handle_year(year: int, day_to_solutions: dict[int, list[str]]):
     max_day = 25 if CREATE_ALL_DAYS else max(*day_to_solutions, *leaderboard)
     fill_empty_days_in_dict(day_to_solutions, max_day)
     for day, solutions in day_to_solutions.items():
+        #print(day)
+        #print(solutions)
         handle_day(day, year, solutions, html, leaderboard.get(day, None))
 
     with open(README_PATH, "r") as file:
@@ -395,6 +406,7 @@ def handle_year(year: int, day_to_solutions: dict[int, list[str]]):
 
 def main():
     for year, day_to_solutions_list in get_solution_paths_dict_for_years().items():
+        #print(day_to_solutions_list)
         print(f"=== Generating table for year {year} ===")
         handle_year(year, day_to_solutions_list)
 
