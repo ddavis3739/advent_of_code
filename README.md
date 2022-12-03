@@ -16,34 +16,34 @@ I will default to doing the solutions in R but if I am feeling cheeky I will cha
 <h1 align="center">
   2021 - 20 ⭐
 </h1>
-<a href="None">
+<a href="2021/01/code/day1.r">
   <img src="Media/2021/01.png" width="161px">
 </a>
-<a href="None">
+<a href="2021/02/code/day2.r">
   <img src="Media/2021/02.png" width="161px">
 </a>
-<a href="None">
+<a href="2021/03/code/day3.r">
   <img src="Media/2021/03.png" width="161px">
 </a>
-<a href="None">
+<a href="2021/04/code/day4.r">
   <img src="Media/2021/04.png" width="161px">
 </a>
-<a href="None">
+<a href="2021/05/code/day5.r">
   <img src="Media/2021/05.png" width="161px">
 </a>
-<a href="None">
+<a href="2021/06/code/day6.r">
   <img src="Media/2021/06.png" width="161px">
 </a>
-<a href="None">
+<a href="2021/07/code/day7.r">
   <img src="Media/2021/07.png" width="161px">
 </a>
-<a href="None">
+<a href="2021/08/code/day8.r">
   <img src="Media/2021/08.png" width="161px">
 </a>
-<a href="None">
+<a href="2021/09/code/day9.r">
   <img src="Media/2021/09.png" width="161px">
 </a>
-<a href="None">
+<a href="2021/10/code/day10.r">
   <img src="Media/2021/10.png" width="161px">
 </a>
 <!-- AOC TILES END -->
