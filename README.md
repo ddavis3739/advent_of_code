@@ -3,6 +3,12 @@ My solutions for each of the days of advent of code
 
 I will default to doing the solutions in R but if I am feeling cheeky I will challenge myself to do them in python or another language.
 
+To makea jupyter notebook a python script.
+
+```
+jupyter nbconvert --to script {PATHTOCODE}
+```
+
 <!-- AOC TILES BEGIN -->
 <h1 align="center">
   2022 - 4 ⭐
@@ -19,7 +25,7 @@ I will default to doing the solutions in R but if I am feeling cheeky I will cha
 <h1 align="center">
   2021 - 20 ⭐
 </h1>
-<a href="2021/01/code/day1.r">
+<a href="2021/01/code/01.py">
   <img src="Media/2021/01.png" width="161px">
 </a>
 <a href="2021/02/code/day2.r">

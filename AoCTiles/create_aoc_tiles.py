@@ -176,11 +176,13 @@ def find_recursive_solution_files(directory: Path) -> list[Path]:
     solution_paths = []
     #print(directory.glob('*/*'))
     for path in directory.glob('*/*'):
-        #print(path)
-        #print(path.suffix)
-        #print(path.suffix in extension_to_color)
+        print(extension_to_color)
+        print(path)
+        print(path.suffix)
+        print('ipynb' in extension_to_color)
+        print(path.suffix in extension_to_color)
         if path.is_file() and path.suffix in extension_to_color:
-            #print(path)
+            print(path)
             solution_paths.append(path)
     return solution_paths
 
@@ -406,7 +408,7 @@ def handle_year(year: int, day_to_solutions: dict[int, list[str]]):
 
 def main():
     for year, day_to_solutions_list in get_solution_paths_dict_for_years().items():
-        #print(day_to_solutions_list)
+        print(day_to_solutions_list)
         print(f"=== Generating table for year {year} ===")
         handle_year(year, day_to_solutions_list)
 
