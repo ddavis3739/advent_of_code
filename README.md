@@ -22,6 +22,9 @@ jupyter nbconvert --to script {PATHTOCODE}
 <a href="2022/03/code/03.r">
   <img src="Media/2022/03.png" width="161px">
 </a>
+<a href="2022/04/code/04.r">
+  <img src="Media/2022/04.png" width="161px">
+</a>
 <h1 align="center">
   2021 - 20 ⭐
 </h1>
