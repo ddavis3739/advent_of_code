@@ -378,7 +378,7 @@ def fill_empty_days_in_dict(day_to_solutions: dict[int, list[str]], max_day) -> 
 
 def handle_year(year: int, day_to_solutions: dict[int, list[str]]):
     leaderboard = request_leaderboard(year)
-    #print(leaderboard)
+    print(leaderboard)
     if DEBUG:
         leaderboard[25] = None
         leaderboard[24] = DayScores("22:22:22", "12313", "0")
