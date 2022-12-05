@@ -246,14 +246,14 @@ for (i in 1:nrow(input_moves)) {
   print(i)
 }
 
-ans <- 
+ans_2 <- 
   apply(input_boxes_2, 2, 
         function(x){
           x <- x[x!= '']
           x[length(x)]
         })
 
-ans <- substr(ans, 2, 2)
-paste0(ans, collapse = '')
+ans_2 <- substr(ans_2, 2, 2)
+paste0(ans_2, collapse = '')
 
 
