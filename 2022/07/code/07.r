@@ -94,6 +94,91 @@ mytheme <- theme_bw() + theme(axis.line = element_line(colour = "black"),
 # 
 # Find all of the directories with a total size of at most 100000. What is the sum of the total sizes of those directories?
 
+# input <- readLines('07/data/input.txt')
+# 
+# file_system <- matrix(nrow = 0, ncol = 3)
+# # for (line in input[1:25]) {
+# for (line in input) {
+#   print(line)
+#   if (line == '$ cd /') {
+#     # start
+#     cur <-  '/'
+#     next
+#   } else if(line == '$ cd ..'){
+#     cur <- strsplit(cur, '/')[[1]] %>% unlist
+#     cur <- paste0(cur[-length(cur)], collapse = '/')
+#     next
+#   } else if(startsWith(line, '$ cd')){
+#     # go down, create new node
+#     dir_name <- gsub("\\$ cd ", "", line)
+#     cur <- file.path(cur, dir_name)
+#   } else if(startsWith(line, '$ ls')){
+#     next
+#   } else if(startsWith(line, 'dir ')){
+#     # directories, create new node
+#     
+#     dir_name <- file.path(cur, gsub("dir ", "", line))
+#     file_system <- rbind(file_system,
+#                          matrix(c('dir', 0, dir_name), ncol = 3))
+#     
+#   } else {
+#     
+#     # files, 
+#     temp <- strsplit(line, " ")[[1]] # get size name
+#     size <- temp[1]
+#     file_name <- temp[2]
+#     file_name <- paste0(cur, '/', file_name)
+#     
+#     file_system <- rbind(file_system,
+#                          matrix(c('file', size, file_name), ncol = 3))
+#   }
+#   
+# }
+# file_system <- 
+#   as.data.frame(file_system)
+# 
+# names(file_system) <- c('type', 'size', 'path')
+# file_system$size <- as.numeric(file_system$size)
+# max_depth <- max(str_count(file_system$path, "/"))
+# 
+# file_system_dirs <- matrix(ncol = 2, nrow = 0)
+# for (i in (1:max_depth)) {
+#   # i = 0
+#   # 
+#   # x <- file_system$path[12]
+#   # x <- unlist(str_split(x, "/"))
+#   # x <- x[-(length(x)-i)]
+#   # x = paste0(x, collapse = '/')
+#   
+#   tmp <- file_system
+#   
+#   tmp <- 
+#     tmp[str_count(tmp$path, "/") >= (max_depth - i), ]
+#   tmp$path <- 
+#     sapply(tmp$path, function(x){
+#     x <- unlist(str_split(x, "/"))
+#     x <- paste0(x[-((i):length(x))], collapse = '/')
+#     return(x)
+#   })
+# 
+#   
+#   # x <- "//rrfflbql/jqzm/gqmpvplj.vjg"
+#   # x <- unlist(str_split(x, "/"))
+#   # x <- paste0(x[-(length(x))], collapse = '/')
+#   # x
+#   tmp <- 
+#     tmp %>% 
+#     group_by(path) %>% 
+#     summarise(totSize = sum(size))
+#   
+#   file_system_dirs <- 
+#     rbind(file_system_dirs,tmp )
+# }
+# 
+# file_system_dirs %>%
+#   arrange(desc(totSize))
+# 
+# file_system_dirs$totSize[file_system_dirs$totSize <= 100000] %>% sum
 
 ####### SO to reddit u/enelen
 ####### https://github.com/AdroMine/AdventOfCode/blob/main/2022/Day07/d07_solution.R
@@ -263,136 +348,3 @@ used <- 7e7 - directories['/']
 to_free <- 3e7 - as.integer(used)
 min(directories[directories >= to_free])
 
-# 
-# input <- readLines('07/data/input.txt')
-# 
-# dirTree <- data.frame(matrix(ncol = 3, nrow = 0))
-# names(dirTree) <- c('file', 'size', 'dir1')
-# dirLev <- 'dir1'
-# dirTree <- 
-#   dirTree %>%
-#   mutate_if(is.logical, as.character)
-# lev <- 1
-# dirTree_name <- 'base'
-# dirTree[1, ] <-  c('dir', 0, dirTree_name)
-# 
-# line <- input[986]
-# 
-# # for (line in input[1:985]) {
-# for (line in input) {
-#   
-#   print(paste('LINEEEEEEEEE', line))
-#   
-#   if (grepl('^\\$', line) & !grepl('\\$ ls', line)) {
-#     line_dir <- str_split(line, ' ')[[1]][3]
-#     
-#     if (line_dir == '/') {
-#       next
-#     } 
-#     if (line_dir == '..') {
-#       lev <- lev - 1
-#       dirLev <- paste0('dir', lev)
-#       print(paste('LEV IS ', lev))
-#       if (lev == 1) {
-#         dirTree_name <- 'base'
-#       }
-#       next
-#     } 
-#     
-#     dirTree_name <- line_dir
-#     lev <- lev + 1
-#     dirLev <- paste0('dir', lev)
-#     print(paste(dirLev, dirTree_name))
-#     
-#     dirTree_name_cd <- dirTree_name
-#     
-#   } else{
-#     if (grepl('\\$ ls', line)) {
-#       next 
-#     }
-#     if (grepl('^dir', line)) {
-#       lev <- lev + 1
-#       dirLev <- paste0('dir', lev)
-#       
-#       ls_df <- data.frame(matrix(ncol = 3, nrow = 1))
-#       names(ls_df) <- c('file', 'size', dirLev)
-#       
-#       dirname <- str_split(line, ' ')[[1]][2]
-#       
-#       ls_df[1,] <- c('dir', 0, dirname)
-#       
-#       tmp <- dirTree[nrow(dirTree), !is.na(dirTree[nrow(dirTree),])]
-#       
-#       if (!(paste0('dir', lev-1) %in% names(tmp))) {
-#         tmp <- dirTree[which(dirTree[,which(names(dirTree)==paste0('dir', lev-1))] == dirTree_name), ]
-#         tmp <- tmp[nrow(tmp),]
-#         tmp <- tmp[,!is.na(tmp)]
-#       } else if(tmp[, which(names(tmp)==paste0('dir', lev-1))] != dirTree_name) {
-#         tmp <- dirTree[which(dirTree[,which(names(dirTree)==paste0('dir', lev-1))] == dirTree_name), ]
-#         # grab most recent
-#         tmp <- tmp[, 1:which(names(tmp) == paste0('dir', lev-1))]
-#         tmp <- tmp[nrow(tmp),]
-#         tmp <- tmp[,!is.na(tmp)]
-#       }
-#       
-#       ls_df[,names(tmp)[!(names(tmp) %in% names(ls_df))]] <- 
-#         tmp[nrow(tmp),!(names(tmp) %in% names(ls_df))]
-#       
-#       dirTree <- bind_rows(dirTree, ls_df)
-#       # reset dirlev since no cd
-#       lev <- lev - 1
-#       dirLev <- paste0('dir', lev)
-#       next 
-#     }
-#     
-#     print('file')
-#     
-#     ls_df <- data.frame(matrix(ncol = 3, nrow = 1))
-#     names(ls_df) <- c('file', 'size', dirLev)
-#     
-#     size <- str_split(line, ' ')[[1]][1]
-#     filename <- str_split(line, ' ')[[1]][2]
-#     
-#     ls_df[1,] <- c(filename, size, dirTree_name)
-#     
-#     tmp <- dirTree[which(dirTree[,names(dirTree)[which(names(dirTree) == dirLev)]] == 
-#                            dirTree_name), ]
-#     if ((lev-1) > 0) {
-#       tmp <- tmp[, 1:which(names(tmp) == paste0('dir', lev-1))]
-#       tmp <- tmp[nrow(tmp),]
-#       tmp <- tmp[,!is.na(tmp)]
-#     } else if (nrow(tmp)>1) {
-#       tmp <- dirTree[dirTree$file != 'dir', ]
-#     }
-#     tmp <- tmp[nrow(tmp), !is.na(tmp[nrow(tmp),])]
-#     
-#     print(tmp)
-#     
-#     ls_df[,names(tmp)[!(names(tmp) %in% names(ls_df))]] <- 
-#       tmp[nrow(tmp),!(names(tmp) %in% names(ls_df))]
-#     
-#     print(names(ls_df))
-#     print(ls_df)
-#     dirTree <- bind_rows(dirTree, ls_df)
-#   }
-#   
-# }
-# dirTree$size <- as.numeric(dirTree$size)
-# 
-# ans_mat <- matrix(nrow = 0, ncol = 3)
-# for(x in names(dirTree)[grepl('dir', names(dirTree))]){
-#   print(x)
-#   
-#   a <- 
-#     dirTree %>%
-#     filter(!is.na(!!as.symbol(x))) %>%
-#     group_by(!!as.symbol(x)) %>% 
-#     summarise(thres = sum(size)) %>% 
-#     filter(thres <= 100000)
-#   
-#   a$lev <- x
-#   
-#   ans_mat <- rbind(ans_mat, as.matrix(a))
-# }
-# 
-# ans_mat[,2] %>% as.numeric() %>% sum()
