@@ -32,6 +32,7 @@ from PIL import ImageFont
 
 # This results in the parent directory of the script directory, the year directories should be here
 AOC_DIR = Path(__file__).absolute().parent.parent
+# AOC_DIR = os.path.dirname(os.path.abspath("__file__"))
 
 # The directory where the image files for the tiles are stored. This should be committed to git.
 # Year directories are created in this directory, then each day is saved as 01.png, 02.png, etc.
@@ -126,10 +127,10 @@ AOC_TILES_SCRIPT_DIR = Path(__file__).absolute().parent
 CACHE_DIR = AOC_TILES_SCRIPT_DIR / ".aoc_tiles_cache"
 
 # delete previous cached dir
-#for path in CACHE_DIR.glob('*'):
-#    print(path)
-#    if os.path.isfile(path):
-#        os.remove(path)
+for path in CACHE_DIR.glob('*'):
+    print(path)
+    if os.path.isfile(path):
+        os.remove(path)
 
 # Overrides day 24 part 2 and day 25 both parts to be unsolved
 DEBUG = False
