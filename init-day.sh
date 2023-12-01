@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-year="2015"
+year="2023"
 cookie=$(cat session.cookie)
 input_prefix="input"
 sample_prefix="example"
@@ -17,7 +17,9 @@ echo $d_fol
 if [[ "$1" ]]; then
     if ! [[ -d "$1" ]]; then
 	echo "Creating folder for problem $1"
+	mkdir "$year/$d_fol"
 	mkdir "$year/$d_fol/data"
+	mkdir "$year/$d_fol/code"
     fi
     cd "$year/$d_fol/data"
 
