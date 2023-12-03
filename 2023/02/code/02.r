@@ -163,4 +163,4 @@ power <-
 p2 <- sum(power$power)
 
 ans <-  matrix(c(p1, p2)) 
-write_lines(ans, '01/data/input.ans')
+write_lines(ans, '02/data/input.ans')
