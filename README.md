@@ -8,7 +8,7 @@ jupyter nbconvert --to script {PATHTOCODE}
 
 <!-- AOC TILES BEGIN -->
 <h1 align="center">
-  Advent of Code - 56/458 ⭐
+  Advent of Code - 58/458 ⭐
 </h1>
 <h1 align="center">
   2024 - 2 ⭐ - Rez
@@ -17,9 +17,9 @@ jupyter nbconvert --to script {PATHTOCODE}
   <img src=".aoc_tiles/tiles/2024/01.png" width="161px">
 </a>
 <h1 align="center">
-  2023 - 14 ⭐ - Rez
+  2023 - 16 ⭐ - Rez
 </h1>
-<a href="None">
+<a href="2023/01/code/01.r">
   <img src=".aoc_tiles/tiles/2023/01.png" width="161px">
 </a>
 <a href="2023/02/code/02.r">
