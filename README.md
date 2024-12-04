@@ -19,7 +19,7 @@ jupyter nbconvert --to script {PATHTOCODE}
 <h1 align="center">
   2023 - 16 ⭐ - Rez
 </h1>
-<a href="2023/01/01.r">
+<a href="2023/01/code/01.r">
   <img src=".aoc_tiles/tiles/2023/01.png" width="161px">
 </a>
 <a href="2023/02/code/02.r">
