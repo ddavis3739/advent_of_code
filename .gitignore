@@ -7,3 +7,5 @@ META-INF
 */*.Rhistory
 AoCTiles/.aoc_tiles_cache/
 AoCTiles/.aoc_tiles_cache/*
+.aoc_tiles/*
+!.aoc_tiles/tiles/
