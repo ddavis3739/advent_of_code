@@ -10,6 +10,6 @@ repos:
             # the tiles. See the customization section in the README for more flags.
             # Simply remove the comments (#) below for args and the flags you want.
       args:
-          #- --auto-add-tiles-to-git=amend
-          #- --count-as-solved-when=on_leaderboard
+          - --auto-add-tiles-to-git=amend
+          - --count-as-solved-when=on_leaderboard
             #     - --exclude-patterns=2021/*/*.apl,2021/*/*.py,2021/*/*.cpp
