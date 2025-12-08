@@ -7,3 +7,4 @@ META-INF
 */*.Rhistory
 .aoc_tiles/*
 !.aoc_tiles/tiles/
+.DS_Store
