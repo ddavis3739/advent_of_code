@@ -11,5 +11,5 @@ repos:
             # Simply remove the comments (#) below for args and the flags you want.
       args:
           - --auto-add-tiles-to-git=amend
-          - --count-as-solved-when=on_leaderboard
+          - --count-as-solved-when=file_exists
             #     - --exclude-patterns=2021/*/*.apl,2021/*/*.py,2021/*/*.cpp
