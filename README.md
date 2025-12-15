@@ -4,13 +4,16 @@ I will default to doing the solutions in R but if I am feeling cheeky I will cha
 
 <!-- AOC TILES BEGIN -->
 <h1 align="center">
-  Advent of Code - 62/516 ⭐
+  Advent of Code - 64/530 ⭐
 </h1>
 <h1 align="center">
-  2025 - 2 ⭐ - Rez
+  2025 - 4 ⭐ - Rez
 </h1>
 <a href="2025/01/code/01.r">
   <img src=".aoc_tiles/tiles/2025/01.png" width="161px">
+</a>
+<a href="2025/02/code/02.r">
+  <img src=".aoc_tiles/tiles/2025/02.png" width="161px">
 </a>
 <h1 align="center">
   2024 - 2 ⭐ - Rez
